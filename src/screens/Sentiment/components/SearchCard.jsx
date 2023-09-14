@@ -45,16 +45,18 @@ const SearchCard = (props) => {
         <Typography sx={{ fontSize: "0.8rem" }}>
             ${topSearchData?.price.toFixed(2)}
           </Typography>
-          <Typography
+          {/* <Typography
             sx={{
               fontSize: "0.8rem",
               color: dataObj.circleColour,
             }}
           >
             {`${priceChange.toFixed(2)} (${percentChange.toFixed(2)}%)`}
-          </Typography>
+          </Typography> */}
         <Grid item md={3} xs={3} sm={3} sx={{marginLeft:"35%"}}>
-          <CustomCircularProgressbar percentage={20} />
+          {/* <CustomCircularProgressbar percentage={20} /> */}
+          <CustomCircularProgressbar percentage={`${priceChange.toFixed(2)}`} />
+
         </Grid>
       </Grid>
     </Grid>

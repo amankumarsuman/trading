@@ -50,7 +50,13 @@ class CustomCircularProgressbar extends React.Component {
             strokeDashoffset={pathOffset}
             transform="rotate(-90 50 50)"
           />
+          {/* <text x="50" y="30" textAnchor="middle" dominantBaseline="middle" fill="#fff">
+            
+            {`${"SENTIMENT"}`}
+           
+          </text> */}
           <text x="50" y="50" textAnchor="middle" dominantBaseline="middle" fill="#fff">
+            
             {`${percentage}`}
             {/* {`${"SENTIMENT"}`} */}
            
