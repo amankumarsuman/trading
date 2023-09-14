@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { CircularProgress, Grid, InputBase, Typography } from "@mui/material";
 import TopCircleChart from "./TopCircleChart";
-import CustomCircularProgressbar from "./CircleWithPercentage";
 import { Usekey } from "../../../coreComponents/Keyboard";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import { useState } from "react";
 import DoubleLayerCircle from "./DoubleLayerCircle";
 
-const SearchCard = (props) => {
+const SearchComponent = (props) => {
   const topSearchData = props.searchData[0];
   const priceChange = parseFloat(topSearchData?.price_change || 0);
   const percentChange = parseFloat(topSearchData?.price_change_percentage || 0);
@@ -19,6 +18,7 @@ const [search,setSearch]=useState("GEOS")
     bgColor: priceChange > 0 ? "#004B19" : "#4B0000",
   };
 
+  
   const handleChange=(e)=>{
     setSearch(e.target.value?.toUpperCase())
   }
@@ -54,70 +54,54 @@ const [search,setSearch]=useState("GEOS")
   Usekey("Enter", fetchSentimentData);
   Usekey("NumpadEnter", fetchSentimentData);
 
+
   return (
     <>
     {isLoading?
   <>
 <CircularProgress />
   </>  :
-
-
-    <Grid
-      container
-      spacing={2}
-      sx={{
-        
-        textAlign: "center",
-        margin: "auto",
-        alignItems: "center",
-      
-      }}
-      direction="column"
-    >
-      <Grid item md={10} xs={10} sm={12} sx={{ textAlign: "center" }}>
+  
+    <Grid container spacing={2}>
+      <Grid item md={10} xs={10} sm={12}>
         <InputBase
           fullWidth
           sx={{ backgroundColor: "white", borderRadius: "3px", px: 1 }}
           placeholder="Search"
           onChange={(e)=>handleChange(e)}
           value={search}
-          
-          // inputProps={{ style: { textTransform: "uppercase" } }}
         />
       </Grid>
-
-      <Grid item md={3} xs={3} sm={3} sx={{ textAlign: "center" }}>
-        <img
-          style={{ maxWidth: "30%", maxHeight: "30%", margin: "auto" }}
-          src="https://www.freepnglogos.com/uploads/tesla-logo-png-27.png"
-          alt=""
-        />
-        
-        <Typography variant="h6">{filteredData[0]?.Symbol}</Typography>
-        <Typography sx={{ fontSize: "0.8rem" }}>
+      <Grid container item md={12} sm={12}>
+        <Grid item md={6} xs={6} sm={6} sx={{ textAlign: "center" }}>
+          <img
+            style={{ maxWidth: "80%", maxHeight: "80%" }}
+            src="https://www.freepnglogos.com/uploads/tesla-logo-png-27.png"
+            alt=""
+          />
+          <Typography variant="h6">{topSearchData?.Symbol}</Typography>
+          <Typography sx={{ fontSize: "0.8rem" }}>
             ${filteredData[0]?.price}
           </Typography>
-          {/* <Typography
+          <Typography
             sx={{
               fontSize: "0.8rem",
               color: dataObj.circleColour,
             }}
           >
-            {`${priceChange.toFixed(2)} (${percentChange.toFixed(2)}%)`}
-          </Typography> */}
-        <Grid item md={3} xs={3} sm={3} sx={{marginLeft:"35%"}}>
-          {/* <CustomCircularProgressbar percentage={20} /> */}
-          {/* <DoubleLayerCircle value={`${filteredData[0]?.sentiment}`} /> */}
-
-          {/* <CustomCircularProgressbar percentage={`${filteredData[0]?.sentiment}`} /> */}
-         <DoubleLayerCircle/>
-
+            {/* {`${priceChange.toFixed(2)} (${percentChange.toFixed(2)}%)`} */}
+          </Typography>
+        </Grid>
+        <Grid item md={6} xs={6} sm={6}>
+            <DoubleLayerCircle value={filteredData[0]?.sentiment}/>
+          {/* <TopCircleChart item={dataObj} topSearchData={topSearchData} /> */}
         </Grid>
       </Grid>
     </Grid>
-  }
+}
     </>
+        
   );
 };
 
-export default SearchCard;
+export default SearchComponent;

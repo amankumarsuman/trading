@@ -31,7 +31,7 @@ function DailyComu({ sentimentData }) {
   const options = {
     chart: {
       type: "bar",
-      height: 200,
+      height: 100,
       stacked: true,
       toolbar: {
         show: false,
@@ -114,7 +114,7 @@ function DailyComu({ sentimentData }) {
           options={options}
           series={series}
           type="bar"
-          height={330}
+          height={230}
         />
       </Box>
     </>

@@ -87,7 +87,7 @@ export default function FixedSpacing(props) {
               return (
                 <Item
                   key={index}
-                  sx={{ height:index ===0? 140:index ===5?140:80, backgroundColor:index ===0? "#E6C0C9":index ===5?"#E6C0C9":"#006D33"}}
+                  sx={{ height:index ===0? 100:index ===5?100:80, backgroundColor:index ===0? "#E6C0C9":index ===5?"#E6C0C9":"#006D33"}}
 
                 >
                   <Box

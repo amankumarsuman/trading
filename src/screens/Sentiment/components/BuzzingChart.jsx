@@ -68,7 +68,7 @@ function BuzzingChart({ sentimentData }) {
         options={options}
         series={series}
         type="bar"
-        height={330}
+        height={200}
       />
     </Box>
   );

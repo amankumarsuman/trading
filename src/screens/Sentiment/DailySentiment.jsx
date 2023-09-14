@@ -29,6 +29,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useCoinActions } from "./_actions/coin.actions";
 import { getSentiment } from "./dailySentimentSlice";
 import CustomCircularProgressbar from "./components/CircleWithPercentage";
+import SearchComponent from "./components/SearchComponent";
 
 const DailySentiment = () => {
   const sentimentSliceData = useSelector((state) => state.sentiment.value);
@@ -145,9 +146,9 @@ const DailySentiment = () => {
       <Box sx={{ mb: 1,width:"43%" }}>
         <Grid container spacing={0.5}>
           <Grid item md={2.8} xs={12}>
-            <Paper className="paper-back" sx={{ p: 1, height: "45vh", }}>
+            <Paper className="paper-back" sx={{ p: 1, height: "35vh", }}>
               <Typography>Daily Sentiment Heat Map</Typography>
-              <HeatMap sentimentData={fetchedSentimentData1} />
+              <HeatMap sentimentData={fetchedTopMentionStock} />
             </Paper>
           </Grid>
           <Grid item md={3} xs={12}>
@@ -156,17 +157,18 @@ const DailySentiment = () => {
               sx={{
                 px: 1,
                 py: 1,
-                height: "45vh",
+                height: "35vh",
               }}
             >
-              <SearchCard searchData={fetchedTopMentionStock} />
+              {/* <SearchCard searchData={fetchedTopMentionStock} /> */}
+              <SearchComponent searchData={fetchedTopMentionStock} />
 
             </Paper>
           </Grid>
 
           {/* daily commulative chart */}
           <Grid item md={3.1} xs={12}>
-            <Paper className="paper-back" sx={{ p: 1, height: "45vh", }}>
+            <Paper className="paper-back" sx={{ p: 1, height: "35vh", }}>
               <Grid
                 item
                 sx={{
@@ -186,7 +188,7 @@ const DailySentiment = () => {
 
           {/* daily heatmap */}
           <Grid item md={3.1} xs={12}>
-            <Paper className="paper-back" sx={{ p: 1, height: "45vh", }}>
+            <Paper className="paper-back" sx={{ p: 1, height: "35vh", }}>
               <Grid
                 item
                 sx={{
@@ -215,7 +217,7 @@ const DailySentiment = () => {
             md={2.8}
             xs={12}
             spacing={1}
-            sx={{ display: "flex", alignItems: "center", height: "28vh", }}
+            sx={{ display: "flex", alignItems: "center", height: "18vh", }}
           >
             <Grid item md={12} xs={12} sx={{ height: "40%" }}>
               <MiniCards />
@@ -227,7 +229,7 @@ const DailySentiment = () => {
 
           {/* second item - column */}
           <Grid item md={3} xs={12}>
-            <Paper className="paper-back" sx={{ p: 0, height: "28vh", }}>
+            <Paper className="paper-back" sx={{ p: 0, height: "20vh", }}>
               <HorizontalChart sentimentData={fetchedTopMentionStock} />
             </Paper>
           </Grid>
