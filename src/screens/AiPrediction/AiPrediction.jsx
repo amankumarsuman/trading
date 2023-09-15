@@ -141,11 +141,12 @@ function AiPrediction(props) {
               <TableGrid />
             </div>
             <div className="main_content_wrapper">
-              <Grid container spacing={4}>
-                <Grid item sm={12} md={2}>
+              <Grid container  spacing={4}>  
+                <Grid  item sm={12} md={2}>
                   <div
                     style={{
-                      height: "100%",
+                      height: "94%",
+                      
                       width: "100%",
                       border: "2px solid blue",
                       borderRadius: "12px",
@@ -179,7 +180,7 @@ function AiPrediction(props) {
                     />
                   </div>
                 </Grid>
-                <Grid item sm={12} md={5}>
+                <Grid item sm={12} md={5} >
                   <div className="company_month">
                     <BarCharts dataList={dataList} />
                   </div>

@@ -92,7 +92,7 @@ function MultibarCharts(props) {
         options={data.options}
         series={data.series}
         type="bar"
-        height={280}
+        height={150}
       />
     </div>
   );

@@ -27,7 +27,7 @@ function MultiArea(props) {
         },
       },
       chart: {
-        height: 350,
+        height: 150,
         type: "area",
         toolbar: {
           show: false,
@@ -84,7 +84,7 @@ function MultiArea(props) {
         options={data.options}
         series={data.series}
         type="line"
-        height={280}
+        height={150}
       />
     </div>
   );
