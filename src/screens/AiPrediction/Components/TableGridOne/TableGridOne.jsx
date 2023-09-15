@@ -6,6 +6,8 @@ function TableGridOne(props) {
   const { dataList, list, tabDataName, modelname, currentPrice } = props;
   console.log("Tester", modelname);
   return (
+    <>
+    
     <div className="grid_wrapper">
       <div>
         <p className="head">{modelname}</p>
@@ -37,6 +39,8 @@ function TableGridOne(props) {
         </div>
       </div>
     </div>
+   
+    </>
   );
 }
 

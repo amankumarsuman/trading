@@ -2,8 +2,21 @@ import React, { useEffect, useState } from "react";
 import "../TableGrid/TableGrid.scss";
 import axios from "axios";
 
-function TableGrid(props) {
-  const [dataList, setDataList] = useState({});
+function TableGrid({price}) {
+  const [dataList, setDataList] = useState({}); 
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const currentData = price[currentIndex];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        (prevIndex + 1) % price.length
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
   useEffect(() => {
     axios
       .get(
@@ -27,22 +40,22 @@ function TableGrid(props) {
     <div className="grid_wrapper">
       <div className="icon_box"></div>
       <div className="">
-        <p>TSLA</p>
+        <p>{currentData?.symbol}</p>
       </div>
       <div className="">
         <p className="small_head">Price</p>
-        <p className="head">262.00</p>
+        <p className="head">{currentData?.price}</p>
       </div>
       <div className="content_wrapper">
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          {dataList?.items?.map((list, index) => {
+          {/* {dataList?.items?.map((list, index) => {
             return (
               <p className="small_head">
                 {list?.charAt(0)?.toUpperCase() +
                   (list !== undefined ? list?.slice(1) : "")}
               </p>
             );
-          })}
+          })} */}
         </div>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           {dataList?.values?.map((list, index) => {

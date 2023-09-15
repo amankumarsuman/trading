@@ -138,7 +138,7 @@ function AiPrediction(props) {
         {tabDataName === "" && (
           <>
             <div className="top_rated_wrapper">
-              <TableGrid />
+              <TableGrid price={price} />
             </div>
             <div className="main_content_wrapper">
               <Grid container spacing={4}>
@@ -166,9 +166,7 @@ function AiPrediction(props) {
                       })}
                     />
                   </div>
-                  {/* <div className="company_logo">
-                    <img src={teslaLogo} alt="logo" />
-                  </div> */}
+                
                 </Grid>
                 <Grid item sm={12} md={5}>
                   <div className="company_prediction">
@@ -186,12 +184,7 @@ function AiPrediction(props) {
                 </Grid>
                 <Grid item sm={12} md={7}>
                   <div className="company_price">
-                    {/* <ReactDatatableComponent noheader={false} />
-                  <br />
-                  <ReactDatatableComponent noheader={true} />
-
-                  <br />
-                  <ReactDatatableComponent noheader={true} /> */}
+                 
                     <TableGridHeader />
 
                     
@@ -228,7 +221,7 @@ function AiPrediction(props) {
             </div>
           </>
         )}
-        {tabDataName === "TopStocks" && (
+        {/* {tabDataName === "TopStocks" && (
           <>
             <TopTen tabDataName={tabDataName} />
           </>
@@ -237,7 +230,7 @@ function AiPrediction(props) {
           <>
             <ETF tabDataName={tabDataName} />
           </>
-        )}
+        )} */}
       </div>
     </div>
   );
