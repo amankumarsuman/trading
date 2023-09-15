@@ -95,7 +95,7 @@ export default function HorizontalChart({ sentimentData }) {
   return (
     <div id="chart">
       <ReactApexChart
-        // options={options}
+        options={options}
         series={series}
         type="bar"
         height={120}

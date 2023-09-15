@@ -9,7 +9,7 @@ const DoubleLayerCircle = ({ sentiment="Sentiment", value }) => {
   
 useEffect(()=>{
 const percentages= parseFloat(value);
-console.log(percentages,typeof(percentages),"percentages")
+
     if (percentages > 0 && percentages <= 50) {
       setColors('yellow');
     } else if (percentages > 50 && percentages <= 100) {
