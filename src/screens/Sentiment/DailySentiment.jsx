@@ -62,7 +62,7 @@ const DailySentiment = () => {
     try {
       console.log("Fetching topstock mention data...");
       const TopMentionStockResponse = await fetch(
-        "https://dev-sentiment.stockiworld.com/daily-hot-list" //http://localhost:5000
+        "https://dev-websocket.stockiworld.com/api/daily-hot-list" //http://localhost:5000
       );
       console.log(
         "Response status for topstock mention data:",
